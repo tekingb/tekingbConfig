@@ -15,4 +15,4 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:300"
+            allowedOrigins: "http://localhost:3000"
