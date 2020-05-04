@@ -1,5 +1,6 @@
 
-rootUrlValidate:http://localhost:3003
+url:
+  validate:'http://localhost:3003'
 
 eureka:
   client:
