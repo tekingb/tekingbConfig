@@ -1,7 +1,4 @@
 
-url:
-  validate: http://localhost:3003
-
 eureka:
   client:
     register-with-eureka: true
