@@ -11,4 +11,3 @@ eureka:
    
 urlvalidate: http://localhost:3003
 
-corsOrigins: http://localhost:3001
