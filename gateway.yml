@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      routes:
+        - id: schemaService
+          uri: lb://schemaService
+          predicates:
+            - Path=/api/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: schemaService
+        - id: crmService
+          uri: lb://crmService
+          predicates:
+            - Path=/crm/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: crmService
+                fallbackuri: forward:/Fallback
+      globalcors:
+        corsConfigurations:
+          "[/**]":
+            allowed-origins: "http://localhost:3001"
+            allowed-methods:
+              - "*"
+            allowed-headers:
+              - "*"
+            allow-credentials: true
