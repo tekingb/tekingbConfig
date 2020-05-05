@@ -9,4 +9,4 @@ eureka:
     hostname: localhost
    
    
-urlvalidate: http://localhost:4444
+urlvalidate: http://localhost:3003
