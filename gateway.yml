@@ -22,7 +22,17 @@ spring:
             - name: CircuitBreaker
               args:
                 name: crmService
-                fallbackuri: forward:/Fallback
+                fallbackuri: forward:/Fallback               
+        - id: partyService
+          uri: lb://partyService
+          predicates:
+            - Path=/party/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: partyService
+                fallbackuri: forward:/Fallback        
+                               
       globalcors:
         corsConfigurations:
           "[/**]":
