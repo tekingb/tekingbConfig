@@ -13,16 +13,7 @@ spring:
           filters:
             - name: CircuitBreaker
               args:
-                name: schemaService
-        - id: crmService
-          uri: lb://crmService
-          predicates:
-            - Path=/crm/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: crmService
-                fallbackuri: forward:/Fallback               
+                name: schemaService             
         - id: party
           uri: lb://party
           predicates:
@@ -31,8 +22,16 @@ spring:
             - name: CircuitBreaker
               args:
                 name: party
-                fallbackuri: forward:/Fallback        
-                               
+                fallbackuri: forward:/Fallback   
+        - id: producto
+          uri: lb://producto
+          predicates:
+            - Path=/producto/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: producto
+                fallbackuri: forward:/Fallback                               
       globalcors:
         corsConfigurations:
           "[/**]":
