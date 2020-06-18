@@ -31,7 +31,16 @@ spring:
             - name: CircuitBreaker
               args:
                 name: producto
-                fallbackuri: forward:/Fallback                               
+                fallbackuri: forward:/Fallback   
+        - id: common
+          uri: lb://common
+          predicates:
+            - Path=/common/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: common
+                fallbackuri: forward:/Fallback
       globalcors:
         corsConfigurations:
           "[/**]":
