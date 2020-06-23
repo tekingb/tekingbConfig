@@ -41,6 +41,15 @@ spring:
               args:
                 name: common
                 fallbackuri: forward:/Fallback
+        - id: generador
+          uri: lb://generador
+          predicates:
+            - Path=/generador/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: common
+                fallbackuri: forward:/Fallback
       globalcors:
         corsConfigurations:
           "[/**]":
