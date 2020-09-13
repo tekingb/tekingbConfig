@@ -24,27 +24,18 @@ spring:
                 name: party
                 fallbackuri: forward:/Fallback   
         - id: producto
-          uri: lb://producto
+          uri: lb://product
           predicates:
-            - Path=/producto/**
+            - Path=/product/**
           filters:
             - name: CircuitBreaker
               args:
-                name: producto
+                name: product
                 fallbackuri: forward:/Fallback   
         - id: common
           uri: lb://common
           predicates:
             - Path=/common/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: common
-                fallbackuri: forward:/Fallback
-        - id: generador
-          uri: lb://generador
-          predicates:
-            - Path=/generador/**
           filters:
             - name: CircuitBreaker
               args:
