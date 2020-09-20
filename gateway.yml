@@ -41,14 +41,14 @@ spring:
               args:
                 name: common
                 fallbackuri: forward:/Fallback
-        - id: order
-          uri: lb://order
+        - id: order_
+          uri: lb://order_
           predicates:
             - Path=/order_/**
           filters:
             - name: CircuitBreaker
               args:
-                name: order
+                name: order_
                 fallbackuri: forward:/Fallback
       globalcors:
         corsConfigurations:
