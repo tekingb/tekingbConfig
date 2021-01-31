@@ -2,7 +2,7 @@ spring:
   application:
     name: GATEWAY-SERVICE
   sleuth:
-    enabled: true
+    enabled: false
     sampler.probability: 1
   cloud:
     gateway:
