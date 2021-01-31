@@ -1,6 +1,9 @@
 spring:
   application:
     name: GATEWAY-SERVICE
+  sleuth:
+    enabled: true
+    sampler.probability: 1
   cloud:
     gateway:
       default-filters:
