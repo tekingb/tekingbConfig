@@ -10,7 +10,7 @@ spring:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       routes:
         - id: schemaService
-          uri: lb://schemaService
+          uri: http://192.168.12.1:8100
           predicates:
             - Path=/schema/**
           filters:
