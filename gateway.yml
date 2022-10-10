@@ -34,7 +34,16 @@ spring:
             - name: CircuitBreaker
               args:
                 name: product
-                fallbackuri: forward:/Fallback   
+                fallbackuri: forward:/Fallback        
+        - id: keycloack-connector
+          uri: http://192.168.12.1:3005
+          predicates:
+            - Path=/keycloack/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: common
+                fallbackuri: forward:/Fallback       
         - id: common
           uri: lb://common
           predicates:
