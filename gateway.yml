@@ -10,7 +10,7 @@ spring:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       routes:
         - id: schemaService
-          uri: http://192.168.12.1:8100
+          uri: http://10.66.78.3:8100
           predicates:
             - Path=/schema/**
           filters:
@@ -36,7 +36,7 @@ spring:
                 name: product
                 fallbackuri: forward:/Fallback        
         - id: keycloack-connector
-          uri: http://192.168.12.1:3005
+          uri: http://10.66.78.3:3005
           predicates:
             - Path=/keycloack/**
           filters:
@@ -65,7 +65,7 @@ spring:
       globalcors:
         corsConfigurations:
           "[/**]":
-            allowed-origins: "http://localhost:3001,http://192.168.12.1:3001,http://localhost:3002,http://192.168.12.1:3002"
+            allowed-origins: "http://localhost:3001,http://10.66.78.3:3001,http://localhost:3002,http://10.66.78.3:3002"
             allowed-methods:
               - "*"
             allowed-headers:
